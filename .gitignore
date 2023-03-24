@@ -21,6 +21,7 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+<<<<<<< HEAD
 
 HELP.md
 target/
@@ -55,3 +56,5 @@ build/
 
 ### VS Code ###
 .vscode/
+=======
+>>>>>>> 1971259bef44c5ad28462d75e2d8c5088a3780c8
