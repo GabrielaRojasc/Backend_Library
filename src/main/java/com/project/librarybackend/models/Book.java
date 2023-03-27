@@ -35,7 +35,14 @@ public class Book implements Serializable {
     private Set<Author> authors;
 
 
-
+    /**
+     * Constructor of the class
+     * @param isbn
+     * @param title
+     * @param registerDate
+     * @param year
+     * @param editorial_fk
+     */
     public Book (Integer isbn, String title, String registerDate, Integer year, Editorial editorial_fk){
         this.isbn           = isbn;
         this.title          = title;
