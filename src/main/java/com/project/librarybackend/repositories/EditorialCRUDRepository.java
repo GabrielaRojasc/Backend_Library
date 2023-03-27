@@ -1,4 +1,11 @@
 package com.project.librarybackend.repositories;
 
-public interface EditorialCRUDRepository {
+import com.project.librarybackend.models.Editorial;
+import org.springframework.data.repository.CrudRepository;
+
+/**
+ *
+ */
+public interface EditorialCRUDRepository extends CrudRepository<Editorial, Integer>{
+
 }
