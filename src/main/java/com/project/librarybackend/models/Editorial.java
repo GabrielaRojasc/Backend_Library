@@ -39,41 +39,41 @@ public class Editorial implements Serializable {
 
     //================ Getters and Setters =================== //
 
-    /**
-     *
-     * @return
+    /**Retorna el id Editorial único; no tiene setter porque no se
+     * puede modificar.
+     * @return el id del Editorial
      */
     public Integer getIdEditorial() {
         return idEditorial;
     }
 
     /**
-     *
-     * @return
+     *Retorna el nombre de la editorial
+     * @return el nombre de la editorial
      */
     public String getNameEditorial() {
         return nameEditorial;
     }
 
     /**
-     *
-     * @param nameEditorial
+     *Modifica el nombre de la editorial
+     * @param nameEditorial el nuevo nombre de la editorial
      */
     public void setNameEditorial(String nameEditorial) {
         this.nameEditorial = nameEditorial;
     }
 
     /**
-     *
-     * @return
+     *Retorna el país de la editorial
+     * @return el país de la editorial
      */
     public String getCountryEditorial() {
         return countryEditorial;
     }
 
     /**
-     *
-     * @param countryEditorial
+     *Modifica el país de la editorial
+     * @param countryEditorial el nuevo nombre del país de la editorial
      */
     public void setCountryEditorial(String countryEditorial) {
         this.countryEditorial = countryEditorial;
