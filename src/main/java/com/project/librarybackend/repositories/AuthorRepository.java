@@ -27,7 +27,6 @@ public class AuthorRepository {
      * @return
      */
     public Optional<Author> getAuthor(int code){
-
         return authorCRUDRepository.findById(code);
     }
 
@@ -37,7 +36,6 @@ public class AuthorRepository {
      * @return
      */
     public Author save(Author author){
-
         return authorCRUDRepository.save(author);
     }
 
@@ -46,8 +44,7 @@ public class AuthorRepository {
      * @param author
      */
     public void delete(Author author){
-
-        return authorCRUDRepository.delete(author);
+        authorCRUDRepository.delete(author);
     }
 
 
