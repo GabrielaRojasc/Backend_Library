@@ -79,4 +79,12 @@ public class Book implements Serializable {
     public void setAuthors(Set<Author> authors) {
         this.authors = authors;
     }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
 }
