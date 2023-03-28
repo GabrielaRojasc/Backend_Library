@@ -10,8 +10,8 @@ import java.util.List;
  */
 public interface BookCRUDRepository extends CrudRepository <Book, Integer> {
 
-    @Query(values = "SELECT * FROM books WHERE year >= ? AND year <= ?")
-    public List<Book> findBooksByDates(String startYear, String endYear);
+    @Query(value ="SELECT * FROM books WHERE year >= ? AND year <= ?")
+    public List<Book> findBooksByDates(int startYear, int endYear);
 
 
 }
