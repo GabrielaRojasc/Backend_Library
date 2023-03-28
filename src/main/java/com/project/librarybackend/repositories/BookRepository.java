@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class BookRepository {
     @Autowired
     private BookCRUDRepository bookCRUDRepository;
@@ -15,7 +16,7 @@ public class BookRepository {
      *
      * @return
      */
-    public List<Book> getAll(){
+    public List<Book> getAll() {
         return (List<Book>) bookCRUDRepository.findAll();
     }
 
@@ -25,7 +26,7 @@ public class BookRepository {
      * @param endYear
      * @return
      */
-    public List<Book> getByDates(String startYear, String endYear){
+    public List<Book> getByDates(int startYear, int endYear){
         return (List<Book>) bookCRUDRepository.findBooksByDates(startYear, endYear);
     }
     /**
@@ -51,7 +52,7 @@ public class BookRepository {
      * @param book
      * @return
      */
-    public Book delete(Book book){
-        return bookCRUDRepository.delete(book);
+    public void delete(Book book) {
+        bookCRUDRepository.delete(book);
     }
 }
