@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class EditorialRepository {
     @Autowired
     private EditorialCRUDRepository editorialCRUDRepository;
@@ -16,7 +17,7 @@ public class EditorialRepository {
      * @return
      */
     public List<Editorial> getAll(){
-        return (List<Editorial>) editorialCRUDRepository.findALl();
+        return (List<Editorial>) editorialCRUDRepository.findAll();
     }
 
     /**
@@ -24,8 +25,8 @@ public class EditorialRepository {
      * @param id
      * @return
      */
-    public Optional<Editorial> getEditorial(int id){
-        return editorialCRUDRepository.findById(id);
+    public Optional<Editorial> getEditorial(int id_editorial){
+        return editorialCRUDRepository.findById(id_editorial);
     }
 
     /**
@@ -42,6 +43,6 @@ public class EditorialRepository {
      * @param editorial
      */
     public void delete(Editorial editorial){
-        return editorialCRUDRepository.delete(editorial);
+        editorialCRUDRepository.delete(editorial);
     }
 }
