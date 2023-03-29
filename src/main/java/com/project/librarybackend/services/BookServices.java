@@ -10,41 +10,77 @@ import java.util.Optional;
 
 @Service
 public class BookServices {
+
+    /**
+     * Repositorio de Book utilizado para acceder a la base de datos
+     */
     @Autowired
     private BookRepository bookRepository;
 
-    //getAll
+    /**
+     *Método que se encarga de obtener todos los libros de la base de datos
+     * @return la lista de los libros
+     */
     public List<Book> getAllBook(){
         return bookRepository.getAll();
     }
 
-    //get por fecha, como ya hicimos el query en el crud, aquí solo se llama
-
+    /**
+     * Retorna una lista de todos los libros cuyo año de publicación está dentro del rango especificado.
+     * @param start El año de inicio del rango.
+     * @param end El año de fin del rango.
+     * @return Una lista de todos los libros que cumplen con el criterio de búsqueda.
+     */
     public List<Book> getAllBooksByDates(int start, int end){
         return bookRepository.getByDates(start, end);
     }
 
-    //get por id
+    /**
+     * Método que se encarga de obtener un libro en específico de la base de datos
+     * @param isbn código del libro a obtener
+     * @return book en caso de que exista la base de datos, o Optional vacío
+     * si no encuentra
+     */
     public Optional<Book> getBook(int isbn){
         return bookRepository.getBook(isbn);
     }
 
-    //insert
+    /**
+     * Inserta un nuevo libro en la base de datos
+     * @param book EL objeto libro que se desea insertar en la base de datos
+     * @return El objeto libro que se ha insertado en la base de datos. si no se ha podido insertar,
+     * se retorna el objeto original sin cambios.
+     */
     public Book insertBook (Book book){
-        if(book.getIsbn() != null){ //ingresar un isb distinto de vacio
-        Optional<Book> temp = bookRepository.getBook(book.getIsbn()); // que ese isbn no exista en la base de datos
-        if(!temp.isEmpty()){ // si no está vacio, prosigue
-            if(book.getTitle()!= null && book.getRegisterDate() != null){
-                return bookRepository.save(book);
-            }else
-                return book;
+        //Se valida que el libro tenga un código no nulo para poder ser guardado en la base de datos
+        //no puedo crear un libro sin código, porque no lo creamos con autoincremental
+        if(book.getIsbn() != null){
+            //Se verifica que el código del libro no exista ya en la base de datos
+            Optional<Book> temp = bookRepository.getBook(book.getIsbn());
+            //Si el código no existe en la base de datos, se guarda el libro
+            if(!temp.isEmpty()){
+                //Se valida que el libro tenga un título y una fecha de registro para poder se guardado
+                if(book.getTitle()!= null && book.getRegisterDate() != null){
+                    // Se guarda el libro en la base de datos
+                    return bookRepository.save(book);
+                }else
+                    // Si el libro no tiene título o fecha de publicación, no se puede guardar en la base de datos
+                    return book;
+            } else
+                //Si el código ya existe en la base de datos, no se puede guardar el libro
+                 return book;
         } else
-            return book;
-        } else
+            //Si el libro no tiene código, no se puede guardar en la base de datos
             return book;
     }
 
-    //update
+    /**
+     * Actualiza un libro en la base de datos con la información proporcionada en el
+     * objeto Book
+     * @param book la información del libro que se desea guardar en la base de datos
+     * @return El objeto Book actualizado que se ha guardado en la base de datos, si no se ha podido guardar,
+     * se retorna el objeto original sin cambios.
+     */
     public Book updateBook (Book book){
         if(book.getIsbn()!= null){
             Optional<Book> temp = bookRepository.getBook(book.getIsbn());
@@ -60,7 +96,11 @@ public class BookServices {
             return book;
     }
 
-    //delete
+    /**
+     * Eliminar el libro con el código especificado de la base de datos
+     * @param isbn El código del libro que se desea borrar
+     * @return true, si se pudo borrar el libro, false en caso contrario
+     */
     public Boolean deleteBook(int isbn){
         Boolean success = bookRepository.getBook(isbn).map(book -> {
             bookRepository.delete(book);
