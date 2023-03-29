@@ -13,44 +13,44 @@ public class BookRepository {
     private BookCRUDRepository bookCRUDRepository;
 
     /**
-     *
-     * @return
+     *Retorna todos los libros en un conjunto de lista
+     * @return la lista de todos los libros
      */
     public List<Book> getAll() {
         return (List<Book>) bookCRUDRepository.findAll();
     }
 
     /**
-     *
-     * @param startYear
-     * @param endYear
-     * @return
+     *Establece por filtro las fechas de publicación dentro de un inicio
+     * y un final
+     * @param startYear establece la fecha de publicación por un inicio
+     * @param endYear establece la fecha de publicación por un final
+     * @return la lista de los libros dentro de los años especificados
      */
     public List<Book> getByDates(int startYear, int endYear){
         return (List<Book>) bookCRUDRepository.findBooksByDates(startYear, endYear);
     }
     /**
-     *
-     * @param isbn
-     * @return
+     *Establece de manera opcional para buscar por un id en específico
+     * @param isbn establece el parámetro por el cual se va a buscar
+     * @return retorna el isbn especificado
      */
     public Optional<Book> getBook(int isbn){
         return bookCRUDRepository.findById(isbn);
     }
 
     /**
-     *
-     * @param book
-     * @return
+     *Guarda un nuevo libro o actualiza el libro
+     * @param book Se establece un libro de tipo libro
+     * @return  retorna el libro nuevo o actualizado
      */
     public Book save(Book book){
         return bookCRUDRepository.save(book);
     }
 
     /**
-     *
-     * @param book
-     * @return
+     *Elimina el libro
+     * @param book se establece el libro
      */
     public void delete(Book book) {
         bookCRUDRepository.delete(book);

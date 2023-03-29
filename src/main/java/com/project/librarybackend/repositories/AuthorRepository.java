@@ -13,35 +13,35 @@ public class AuthorRepository {
     private AuthorCRUDRepository authorCRUDRepository;
 
     /**
-     *
-     * @return
+     *Retorna todos los authores en un conjunto de lista
+     * @return la lista de todos los libros
      */
     public List<Author> getAll(){
-
         return (List<Author>) authorCRUDRepository.findAll();
     }
 
     /**
-     *
-     * @param code
-     * @return
+     *Establece de manera opcional para buscar por un código de author
+     * en específico
+     * @param code establece el código por el cual se va a buscar
+     * @return retorna el código del author específico
      */
     public Optional<Author> getAuthor(int code){
         return authorCRUDRepository.findById(code);
     }
 
     /**
-     *
-     * @param author
-     * @return
+     *Guarda un nuevo author o actualiza el author
+     * @param author Se establece el author de tipo author
+     * @return retorna el author nuevo o actualizado
      */
     public Author save(Author author){
         return authorCRUDRepository.save(author);
     }
 
     /**
-     *
-     * @param author
+     *Elimina el author
+     * @param author se establece el author
      */
     public void delete(Author author){
         authorCRUDRepository.delete(author);

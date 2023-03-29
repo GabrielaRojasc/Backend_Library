@@ -13,34 +13,35 @@ public class EditorialRepository {
     private EditorialCRUDRepository editorialCRUDRepository;
 
     /**
-     *
-     * @return
+     *Retorna el conjunto de lista de todas las editoriales que hay
+     * @return el conjunto de lista de todas las editoriales que hay
      */
     public List<Editorial> getAll(){
         return (List<Editorial>) editorialCRUDRepository.findAll();
     }
 
     /**
-     *
-     * @param id
-     * @return
+     *Establece de manera opcional para buscar un id de editorial en
+     * específfico
+     * @param id_editorial establece el id de editorial específico
+     * @return retorna el id editorial en específico
      */
     public Optional<Editorial> getEditorial(int id_editorial){
         return editorialCRUDRepository.findById(id_editorial);
     }
 
     /**
-     *
-     * @param editorial
-     * @return
+     *Guarda una nueva editorial o actualiza la editorial
+     * @param editorial Se establece una editorial de tipo editorial
+     * @return  retorna la editorial nueva o actualizada
      */
     public Editorial save(Editorial editorial){
         return editorialCRUDRepository.save(editorial);
     }
 
     /**
-     *
-     * @param editorial
+     *Elimina la editorial
+     * @param editorial se establece la editorial
      */
     public void delete(Editorial editorial){
         editorialCRUDRepository.delete(editorial);
