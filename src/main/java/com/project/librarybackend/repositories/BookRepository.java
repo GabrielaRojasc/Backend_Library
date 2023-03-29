@@ -21,7 +21,7 @@ public class BookRepository {
     }
 
     /**
-     *Establece por filtro las fechas de publicación dentro de un inicio
+     *Establece por filtro las fechas de publicación dentro de un rango inicio
      * y un final
      * @param startYear establece la fecha de publicación por un inicio
      * @param endYear establece la fecha de publicación por un final
@@ -31,7 +31,7 @@ public class BookRepository {
         return (List<Book>) bookCRUDRepository.findBooksByDates(startYear, endYear);
     }
     /**
-     *Establece de manera opcional para buscar por un id en específico
+     *Establece de manera opcional para buscar por un isbn en específico
      * @param isbn establece el parámetro por el cual se va a buscar
      * @return retorna el isbn especificado
      */
@@ -41,7 +41,7 @@ public class BookRepository {
 
     /**
      *Guarda un nuevo libro o actualiza el libro
-     * @param book Se establece un libro de tipo libro
+     * @param book Se establece un libro a guardar
      * @return  retorna el libro nuevo o actualizado
      */
     public Book save(Book book){
@@ -50,7 +50,7 @@ public class BookRepository {
 
     /**
      *Elimina el libro
-     * @param book se establece el libro
+     * @param book se establece el libro a eliminar
      */
     public void delete(Book book) {
         bookCRUDRepository.delete(book);

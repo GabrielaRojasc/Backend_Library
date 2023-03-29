@@ -32,7 +32,7 @@ public class AuthorRepository {
 
     /**
      *Guarda un nuevo author o actualiza el author
-     * @param author Se establece el author de tipo author
+     * @param author Se establece el author de tipo author a guardar
      * @return retorna el author nuevo o actualizado
      */
     public Author save(Author author){
@@ -41,7 +41,7 @@ public class AuthorRepository {
 
     /**
      *Elimina el author
-     * @param author se establece el author
+     * @param author se establece el author a eliminar
      */
     public void delete(Author author){
         authorCRUDRepository.delete(author);

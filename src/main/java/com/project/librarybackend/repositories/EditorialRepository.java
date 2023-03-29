@@ -32,7 +32,7 @@ public class EditorialRepository {
 
     /**
      *Guarda una nueva editorial o actualiza la editorial
-     * @param editorial Se establece una editorial de tipo editorial
+     * @param editorial Se establece una editorial a guardar
      * @return  retorna la editorial nueva o actualizada
      */
     public Editorial save(Editorial editorial){
@@ -41,7 +41,7 @@ public class EditorialRepository {
 
     /**
      *Elimina la editorial
-     * @param editorial se establece la editorial
+     * @param editorial se establece la editorial a eliminar
      */
     public void delete(Editorial editorial){
         editorialCRUDRepository.delete(editorial);
