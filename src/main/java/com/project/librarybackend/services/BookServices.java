@@ -37,7 +37,7 @@ public class BookServices {
 
     /**
      * Método que se encarga de obtener un libro en específico de la base de datos
-     * @param isbn código del libro a obtener
+     * @param isbn ISBN del libro a obtener
      * @return book en caso de que exista la base de datos, o Optional vacío
      * si no encuentra
      */
@@ -53,11 +53,11 @@ public class BookServices {
      */
     public Book insertBook (Book book){
         //Se valida que el libro tenga un código no nulo para poder ser guardado en la base de datos
-        //no puedo crear un libro sin código, porque no lo creamos con autoincremental
+        //no puedo crear un libro sin ISBN, porque no lo creamos con autoincremental
         if(book.getIsbn() != null){
-            //Se verifica que el código del libro no exista ya en la base de datos
+            //Se verifica que el ISBN del libro no exista ya en la base de datos
             Optional<Book> temp = bookRepository.getBook(book.getIsbn());
-            //Si el código no existe en la base de datos, se guarda el libro
+            //Si el ISBN no existe en la base de datos, se guarda el libro
             if(!temp.isEmpty()){
                 //Se valida que el libro tenga un título y una fecha de registro para poder se guardado
                 if(book.getTitle()!= null && book.getRegisterDate() != null){
@@ -67,10 +67,10 @@ public class BookServices {
                     // Si el libro no tiene título o fecha de publicación, no se puede guardar en la base de datos
                     return book;
             } else
-                //Si el código ya existe en la base de datos, no se puede guardar el libro
+                //Si el ISBN ya existe en la base de datos, no se puede guardar el libro
                  return book;
         } else
-            //Si el libro no tiene código, no se puede guardar en la base de datos
+            //Si el libro no tiene ISBN, no se puede guardar en la base de datos
             return book;
     }
 
@@ -97,8 +97,8 @@ public class BookServices {
     }
 
     /**
-     * Eliminar el libro con el código especificado de la base de datos
-     * @param isbn El código del libro que se desea borrar
+     * Eliminar el libro con el ISBN especificado de la base de datos
+     * @param isbn El isbn del libro que se desea borrar
      * @return true, si se pudo borrar el libro, false en caso contrario
      */
     public Boolean deleteBook(int isbn){

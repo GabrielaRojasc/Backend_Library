@@ -26,8 +26,8 @@ public class EditorialServices {
     }
 
     /**
-     * Método que se encarga de obtener una editorial en específico de la base de datos
-     * @param id_editorial código de la editorial a obtener
+     * Método que se encarga de obtener una editorial en específico de la base de datos por su id
+     * @param id_editorial id de la editorial a obtener
      * @return editorial en caso de que exista la base de datos, o Optional vacío
      * si no encuentra
      */
@@ -80,8 +80,8 @@ public class EditorialServices {
     }
 
     /**
-     * Eliminar la editorial con el código especificado de la base de datos
-     * @param id_editorial El código de la editorial que se desea borrar
+     * Eliminar la editorial con el id especificado de la base de datos
+     * @param id_editorial El id de la editorial que se desea borrar
      * @return true, si se pudo borrar la editorial, false en caso contrario
      */
     public Boolean deleteEditorial(int id_editorial){
