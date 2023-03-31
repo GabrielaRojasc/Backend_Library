@@ -34,8 +34,8 @@ public class BookController {
      * @return Lista de libros que cumplen con el rango de fecha.
      */
     @GetMapping("all/{start}/{end}")
-    public List<Book> getAllBooksByDate(@PathVariable ("start") int start,@PathVariable("end") int end){
-        return bookServices.getAllBooksByDates(start, end);
+    public List<Book> getBooksByDate(@PathVariable ("start") int start,@PathVariable("end") int end){
+        return bookServices.getBooksByDate(start, end);
     }
 
     /**
