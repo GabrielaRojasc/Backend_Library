@@ -16,8 +16,8 @@ public interface BookCRUDRepository extends CrudRepository <Book, Integer> {
      * @param endYear EL año de fin del rango
      * @return Una lista de libros que cumplen con el criterio de búsqueda
      */
-    @Query(value ="SELECT * FROM books WHERE year >= ? AND year <= ?")
-    public List<Book> findBooksByDates(int startYear, int endYear);
+    @Query(value ="SELECT * FROM book WHERE year>=? AND year<=?", nativeQuery = true)
+    public List<Book> findBooksByDate(int startYear, int endYear);
 
 
 }

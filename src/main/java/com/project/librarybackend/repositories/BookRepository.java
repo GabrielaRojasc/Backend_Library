@@ -27,8 +27,8 @@ public class BookRepository {
      * @param endYear establece la fecha de publicación por un final
      * @return la lista de los libros dentro de los años especificados
      */
-    public List<Book> getByDates(int startYear, int endYear){
-        return (List<Book>) bookCRUDRepository.findBooksByDates(startYear, endYear);
+    public List<Book> getBooksByDate(int startYear, int endYear){
+        return (List<Book>) bookCRUDRepository.findBooksByDate(startYear, endYear);
     }
     /**
      *Establece de manera opcional para buscar por un isbn en específico
