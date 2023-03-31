@@ -5,9 +5,6 @@ import java.util.Set;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.springframework.data.relational.core.mapping.Table;
-import org.springframework.data.annotation.Id;
-
 
 @Entity
 @Table (name = "Book") //
@@ -35,21 +32,6 @@ public class Book implements Serializable {
     private Set<Author> authors;
 
 
-    /**
-     * Constructor of the class
-     * @param isbn
-     * @param title
-     * @param registerDate
-     * @param year
-     * @param editorial_fk
-     */
-    public Book (Integer isbn, String title, String registerDate, Integer year, Editorial editorial_fk){
-        this.isbn           = isbn;
-        this.title          = title;
-        this.registerDate   = registerDate;
-        this.year           = year;
-        this.editorial_fk   = editorial_fk;
-    }
 
     //================ Getters and Setters =================== //
 
