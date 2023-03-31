@@ -5,8 +5,6 @@ import java.util.List;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Table;
 
 @Entity
 @Table( name = "editorial")
@@ -22,20 +20,6 @@ public class Editorial implements Serializable {
     @JsonIgnoreProperties("editorial_fk")
     private List<Book> books;
 
-
-
-    /**
-     * Constructor of the class
-     *
-     * @param idEditorial
-     * @param nameEditorial
-     * @param countryEditorial
-     */
-    public Editorial(Integer idEditorial, String nameEditorial, String countryEditorial) {
-        this.idEditorial         = idEditorial;
-        this.nameEditorial       = nameEditorial;
-        this.countryEditorial    = countryEditorial;
-    }
 
     //================ Getters and Setters =================== //
 

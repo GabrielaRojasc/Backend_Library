@@ -2,14 +2,11 @@ package com.project.librarybackend.models;
 
 import java.io.Serializable;
 import java.util.Set;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Table;
 
 @Entity
-@Table (name="author")
+@Table(name="author")
 public class Author implements Serializable {
 
     //Attributes
@@ -21,17 +18,6 @@ public class Author implements Serializable {
     @ManyToMany(mappedBy = "authors")
     private Set<Book> books;
 
-    /**
-     * Constructor of the class
-     * @param code
-     * @param name
-     * @param lastName
-     */
-    public Author(Integer code, String name, String lastName){
-        this.code       = code;
-        this.name       = name;
-        this.lastName   = lastName;
-    }
 
     //================ Getters and Setters =================== //
 
