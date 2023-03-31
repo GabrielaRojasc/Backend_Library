@@ -31,10 +31,10 @@ public class BookServices {
      * @param end El año de fin del rango.
      * @return Una lista de todos los libros que cumplen con el criterio de búsqueda.
      */
-    public List<Book> getAllBooksByDates(int start, int end){
-        return bookRepository.getByDates(start, end);
+    public List<Book> getBooksByDate(int start, int end){
+        return bookRepository.getBooksByDate(start, end);
     }
-
+git
     /**
      * Método que se encarga de obtener un libro en específico de la base de datos
      * @param isbn ISBN del libro a obtener
