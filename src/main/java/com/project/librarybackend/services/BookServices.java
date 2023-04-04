@@ -34,7 +34,6 @@ public class BookServices {
     public List<Book> getBooksByDate(int start, int end){
         return bookRepository.getBooksByDate(start, end);
     }
-git
     /**
      * Método que se encarga de obtener un libro en específico de la base de datos
      * @param isbn ISBN del libro a obtener
